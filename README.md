@@ -2,7 +2,7 @@
 
 Welcome to the **Telegram OSINT for Cyber Threat Intelligence Analysis** project. This tool automates the collection, processing, and analysis of Telegram data for OSINT purposes, focusing on cybersecurity insights.
 
-**To view more information about the project, visit the [Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki/Telegram-OSINT-Research-Environment-Setup)!**
+**To view more information about the project, visit the [Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki)!**
 
 ---
 
