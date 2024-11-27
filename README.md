@@ -1,101 +1,122 @@
 # Telegram OSINT for Cyber Threat Intelligence Analysis
 
-This project is designed to automate the collection, preprocessing, analysis, and anomaly detection of data from Telegram groups and channels. It facilitates Open Source Intelligence (OSINT) workflows with modular Python scripts to scrape and analyze data for cybersecurity insights.
+Welcome to the **Telegram OSINT for Cyber Threat Intelligence Analysis** project. This tool automates the collection, processing, and analysis of Telegram data for OSINT purposes, focusing on cybersecurity insights.
 
-## **Features**
-- **Data Scraping**: Collect messages, participants, and entities from Telegram using `scrape.py` with customizable flags.
-- **Data Preprocessing**: Clean, transform, and prepare raw data for analysis.
-- **Model Analysis Pipeline**: Use machine learning models to analyze patterns and extract meaningful insights.
-- **Anomaly Detection**: Identify anomalies in the collected data that could signify threats or unusual activities.
-- **Custom Workflow**: The master script allows sequential execution of all modules with user input and logging for better usability.
+**To view more information about the project, visit the [Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki)!**
 
 ---
 
-## **Installation and Setup**
+## **Features**
+- **Data Collection**: Scrape Telegram messages, participants, and entities with flexible configurations.
+- **Preprocessing**: Clean and transform data for seamless analysis.
+- **Analysis**: Leverage machine learning pipelines for threat intelligence.
+- **Anomaly Detection**: Identify potential threats or unusual activities.
+- **Customizable Workflow**: Run scripts sequentially with user inputs through the master script.
+- **Integration**: Export data to Elasticsearch and analyze through Kibana.
 
-### **1. Prerequisites**
-- Python 3.8+ installed.
-- Access to Telegram API credentials (`api_id` and `api_hash`). Obtain them from [Telegram's Developer Portal](https://my.telegram.org/auth).
-- Elasticsearch (if using the export feature in `scrape.py`).
+---
 
-### **2. Clone the Repository**
-```bash
-git clone https://github.com/SanketParab3004/Telegram-OSInt.git
-cd Telegram-OSInt
-```
+## **Quick Setup**
 
-### **3. Create a Virtual Environment**
+### **Recommended**  
+Visit the Wiki’s **[Set Up Development Environment](https://github.com/SanketParab3004/Telegram-OSInt/wiki/Set-Up-Development-Environment)** page for detailed setup instructions.
+
+### **Installations**
+
+1. **Git**: [Download and install Git](https://git-scm.com/downloads).  
+2. **Python 3.11 or lower**: [Download Python](https://www.python.org/downloads/).  
+3. **SQLite3**:  
+   - **Windows**: [Download SQLite3](https://www.sqlite.org/download.html).  
+   - **Linux**: Install via `sudo apt install sqlite3`.  
+   - **MacOS**: Pre-installed.  
+4. **Elasticsearch & Kibana**:  
+   - [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch).  
+   - [Download Kibana](https://www.elastic.co/downloads/kibana).
+
+### **Telegram Installation / API Setup**
+
+> **Note**: Use a burner phone number, burner email, and a VM for Telegram setup. For OPSEC recommendations, refer to the [Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki).
+
+1. Install Telegram Desktop and set up a Telegram account.
+2. Visit [Telegram API Development Tools](https://my.telegram.org/auth) and log in.
+3. Create an application:
+   - **App Title**: Any name.
+   - **URL**: www.telegram.org.
+   - **Platform**: Desktop.
+   - **Description**: Any description.
+4. Save your **App api_id** and **App api_hash**.
+
+---
+
+## **Environment Setup**
+
+### **Step 1: Create a Virtual Environment**
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+source venv/Scripts/activate  # For Windows (Git Bash)
+source venv/bin/activate      # For UNIX-based systems
 ```
 
-### **4. Install Dependencies**
+To deactivate:
+```bash
+deactivate
+```
+
+### **Step 2: Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### **5. Configure Telegram API**
-Create a `config.py` file in the project root with the following structure:
-```python
-API_ID = "your_api_id"
-API_HASH = "your_api_hash"
-SESSION_NAME = "your_session_name"
+**Optional**: Install individual dependencies if needed:
+```bash
+pip install telethon argostranslate lingua-language-detector requests elasticsearch ijson
 ```
 
-### **6. Elasticsearch Setup (Optional)**
-If you plan to export data to Elasticsearch:
-1. Install and configure Elasticsearch.
-2. Update the `scrape.py` script's export configuration if required.
+### **Step 3: Configure API Credentials**
+Create a `configs.py` file with the following template:
+```python
+PHONE_NUMBER = "+1234567890"  # Replace with your phone number.
+API_HASH = "your_api_hash"   # Replace with your Telegram API hash.
+API_ID = 123456              # Replace with your Telegram API ID.
+
+# Optional proxy configuration
+PROXIES = None  # Replace with proxy details if needed.
+
+# Elasticsearch configuration (optional)
+es_username = None
+es_password = None
+es_ca_cert_path = None
+```
 
 ---
 
 ## **Usage**
 
 ### **Run the Master Script**
-The master script orchestrates the execution of all other scripts.
 ```bash
-python master_script.py
+python run_OSInt.py
 ```
 
 Follow the prompts to:
-- Scrape data with `scrape.py` (customizable flags provided in the prompts).
-- Preprocess scraped data with `data_preprocessing.py`.
-- Analyze data with `model_analysis_pipeline.py`.
-- Perform anomaly detection using `anomaly_detection.py`.
+- Scrape Telegram data using `scrape.py`.
+- Preprocess data with `data_preprocessing.py`.
+- Perform analysis with `model_analysis_pipeline.py`.
+- Detect anomalies using `anomaly_detection.py`.
+
+### **Individual Script Execution**
+You can also run scripts separately:
+```bash
+python scrape.py --get-messages --get-participants --export-to-es
+python data_preprocessing.py
+python model_analysis_pipeline.py
+python anomaly_detection.py
+```
 
 ---
 
-## **Scripts Overview**
-
-### **1. `scrape.py`**
-- Collects Telegram data such as messages, participants, and entities.
-- Exports data to Elasticsearch if the `--export-to-es` flag is used.
-
-### **2. `data_preprocessing.py`**
-- Cleans and preprocesses raw data for downstream analysis.
-
-### **3. `model_analysis_pipeline.py`**
-- Implements machine learning models to analyze Telegram data and generate insights.
-
-### **4. `anomaly_detection.py`**
-- Detects anomalies in the data, potentially highlighting cybersecurity threats.
-
-### **5. `master_script.py`**
-- Interactive script to run all modules in sequence with user input.
-
----
-
-## **Flags for `scrape.py`**
-- `--get-messages`: Fetch messages from Telegram.
-- `--get-participants`: Retrieve participants of the group or channel.
-- `--get-entities`: Collect entities mentioned in messages.
-- `--export-to-es`: Export collected data to Elasticsearch.
-
----
-
-## **Contribution**
-Feel free to submit issues or pull requests to improve the project. For significant contributions, please discuss the changes beforehand.
+## **Additional Resources**
+- **[Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki)**: For setup, configuration, and OPSEC details.
+- **Elasticsearch & Kibana**: Visualize exported data.
 
 ---
 
