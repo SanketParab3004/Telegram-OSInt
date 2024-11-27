@@ -1,7 +1,3 @@
-Here’s a **README.md** file draft for your project:
-
----
-
 # Telegram OSINT for Cyber Threat Intelligence Analysis
 
 This project is designed to automate the collection, preprocessing, analysis, and anomaly detection of data from Telegram groups and channels. It facilitates Open Source Intelligence (OSINT) workflows with modular Python scripts to scrape and analyze data for cybersecurity insights.
@@ -105,7 +101,3 @@ Feel free to submit issues or pull requests to improve the project. For signific
 
 ## **License**
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-Let me know if you’d like further refinements!
