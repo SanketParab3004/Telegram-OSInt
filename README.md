@@ -115,7 +115,7 @@ python anomaly_detection.py
 ---
 
 ## **Additional Resources**
-- **[Wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki)**: For setup, configuration, and OPSEC details.
+- **[Wiki]([https://github.com/SanketParab3004/Telegram-OSInt/wiki](https://github.com/SanketParab3004/Telegram-OSInt/wiki/Telegram-OSINT-Research-Environment-Setup))**: For setup, configuration, and OPSEC details.
 - **Elasticsearch & Kibana**: Visualize exported data.
 
 ---
