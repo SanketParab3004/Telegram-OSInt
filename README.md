@@ -19,7 +19,7 @@ Welcome to the **Telegram OSINT for Cyber Threat Intelligence Analysis** project
 ## **Quick Setup**
 
 ### **Recommended**  
-Visit the Wiki’s **[Set Up Development Environment](https://github.com/SanketParab3004/Telegram-OSInt/wiki/Telegram-OSINT-Research-Environment-Setup)** page for detailed setup instructions.
+Visit the Wiki’s **[Set Up Development Environment](https://github.com/SanketParab3004/Telegram-OSInt/wiki/Set-Up-Development-Environment)** page for detailed setup instructions.
 
 ### **Installations**
 
