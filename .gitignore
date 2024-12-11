@@ -1,1 +1,33 @@
-*.csv
+venv/
+
+#ignore api_keys.py
+api_keys.py
+configs.py
+
+#ignore _pycache_
+_pycache_/
+api_keys.cpython-311.pyc
+
+#ignore helper->_pycache_
+helper/_pycache_/
+helper.cpython-311.pyc
+
+#ignore anon.session
+anon.session
+anon_proxy.session
+app.db
+
+#ignore output files
+output/
+
+#ignore Processed Data
+processed_data/
+
+#ignore model outputs
+model_outputs/
+
+#ignore Anomaly
+Anomaly/
+
+#ignore Threats
+Threats/
